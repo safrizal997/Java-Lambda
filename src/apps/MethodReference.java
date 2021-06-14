@@ -2,6 +2,7 @@ package apps;
 
 import util.StringUtil;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class MethodReference {
@@ -22,6 +23,7 @@ public class MethodReference {
         MethodReference methodReference = new MethodReference();
         methodReference.run();
         methodReference.run2();
+        methodReference.run3();
 
 
     }
@@ -54,5 +56,20 @@ public class MethodReference {
         Predicate<String> checkIsUpperCase = new StringUtil()::checkIsUpperCase;
 
         System.out.println(checkIsUpperCase.test("RIGHT"));
+    }
+
+    //Method reference di parameter
+
+    public void run3(){
+//        Function<String, String> toUpperCase = new Function<String, String>() {
+//            @Override
+//            public String apply(String value) {
+//                return value.toUpperCase();
+//            }
+//        };
+
+        Function<String, String> toUpperCase = String::toUpperCase;
+
+        System.out.println(toUpperCase.apply("rizal"));
     }
 }
